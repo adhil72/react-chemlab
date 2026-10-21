@@ -18,7 +18,7 @@ export const Beaker: React.FC<BeakerProps> = ({
   width,
   height,
   lipWidth = 8,
-  stroke = '#94a3b8',
+  stroke = '#7e9294',
   strokeWidth = 3,
   fill = 'none',
   className = ''

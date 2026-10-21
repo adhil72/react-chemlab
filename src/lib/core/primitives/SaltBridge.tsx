@@ -20,8 +20,8 @@ export const SaltBridge: React.FC<SaltBridgeProps> = ({
   topY,
   depthY,
   tubeThickness = 32,
-  fill = '#f8fafc',
-  stroke = '#475569',
+  fill = '#fffdf7',
+  stroke = '#6c8081',
   label = 'Salt Bridge [KNO₃(aq)]',
   showLabel = true,
   showIons = true,
@@ -65,7 +65,7 @@ export const SaltBridge: React.FC<SaltBridgeProps> = ({
           markerHeight="5"
           orient="auto-start-reverse"
         >
-          <path d="M 0 1 L 9 5 L 0 9 z" fill="#0f172a" />
+          <path d="M 0 1 L 9 5 L 0 9 z" fill="#1e2d32" />
         </marker>
       </defs>
 
@@ -96,8 +96,8 @@ export const SaltBridge: React.FC<SaltBridgeProps> = ({
         y={depthY - plugHeight}
         width={tubeThickness - 2}
         height={plugHeight}
-        fill="#cbd5e1"
-        stroke="#64748b"
+            fill="#dfe8e2"
+            stroke="#7e9294"
         strokeWidth={1.5}
       />
 
@@ -106,8 +106,8 @@ export const SaltBridge: React.FC<SaltBridgeProps> = ({
         y={depthY - plugHeight}
         width={tubeThickness - 2}
         height={plugHeight}
-        fill="#cbd5e1"
-        stroke="#64748b"
+            fill="#dfe8e2"
+            stroke="#7e9294"
         strokeWidth={1.5}
       />
 
@@ -116,7 +116,7 @@ export const SaltBridge: React.FC<SaltBridgeProps> = ({
           <text
             x={midX - 42}
             y={innerTop - 8}
-            fill="#0f172a"
+            fill="#1e2d32"
             fontSize={12}
             fontWeight="bold"
             textAnchor="middle"
@@ -126,7 +126,7 @@ export const SaltBridge: React.FC<SaltBridgeProps> = ({
           <path
             d={`M ${midX - 58} ${innerTop - 12} L ${outerLeft + tubeThickness / 2} ${innerTop - 12} L ${outerLeft + tubeThickness / 2} ${depthY - plugHeight - 8}`}
             fill="none"
-            stroke="#0f172a"
+            stroke="#1e2d32"
             strokeWidth={1.8}
             markerEnd="url(#salt-arrow)"
           />
@@ -134,7 +134,7 @@ export const SaltBridge: React.FC<SaltBridgeProps> = ({
           <text
             x={midX + 42}
             y={innerTop - 8}
-            fill="#0f172a"
+            fill="#1e2d32"
             fontSize={12}
             fontWeight="bold"
             textAnchor="middle"
@@ -144,7 +144,7 @@ export const SaltBridge: React.FC<SaltBridgeProps> = ({
           <path
             d={`M ${midX + 58} ${innerTop - 12} L ${outerRight - tubeThickness / 2} ${innerTop - 12} L ${outerRight - tubeThickness / 2} ${depthY - plugHeight - 8}`}
             fill="none"
-            stroke="#0f172a"
+            stroke="#1e2d32"
             strokeWidth={1.8}
             markerEnd="url(#salt-arrow)"
           />

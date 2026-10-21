@@ -5,22 +5,22 @@
 [![React](https://img.shields.io/badge/React-19-61dafb?logo=react)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-v4-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
 
-A modular suite of **textbook-grade chemistry apparatus and reaction visualizers** for React. Built with pure scalable vector graphics (SVG) and TypeScript, designed specifically for STEM education platforms, digital textbooks, online quizzes, and interactive scientific applications.
+A modular suite of **textbook-grade chemistry & physics apparatus and circuit visualizers** for React. Built with pure scalable vector graphics (SVG) and TypeScript, designed specifically for STEM education platforms, digital textbooks, online quizzes, and interactive scientific applications.
 
 ---
 
 ## ✨ Features
 
-- **Textbook Quality**: Crisp, vector-rendered lab apparatus matching standard collegiate and high-school chemistry textbook diagrams.
+- **Textbook Quality**: Crisp, vector-rendered lab apparatus and schematics matching collegiate and high-school STEM curriculum diagrams.
 - **Pure SVG Rendering**: Infinite scalability without pixelation or heavy raster dependencies.
-- **Diagram-Only Focus**: Renders purely the visual apparatus without forced wrappers, sidebars, or headers.
-- **Configurable Annotations**: Toggle leader callout lines, chemical labels, measurement scales, and electron flows with single props.
+- **Diagram-Only Focus**: Renders purely the visual apparatus or circuit without forced wrappers, sidebars, or headers.
+- **Configurable Annotations**: Toggle leader callout lines, labels, measurement scales, and current flows with single props.
 - **Strongly Typed**: 100% TypeScript with comprehensive interfaces for each visualizer.
-- **Accessible & Responsive**: Built with SVG viewboxes that scale naturally to any container or screen size.
+- **Zero Runtime Dependencies**: Lightweight and responsive SVG viewboxes that scale naturally to any container or screen size.
 
 ---
 
-## 🔬 Component Showcase
+## 🔬 Chemistry Visualizer Showcase
 
 | Visualizer | Preview | Description |
 | :--- | :--- | :--- |
@@ -38,6 +38,20 @@ A modular suite of **textbook-grade chemistry apparatus and reaction visualizers
 
 ---
 
+## ⚡ Physics & Circuit Visualizer Showcase
+
+| Visualizer | Preview | Description |
+| :--- | :--- | :--- |
+| **DC Circuit** | ![DC Circuit](docs/images/dc-circuit.png) | Complete DC loop with battery voltage source, toggle knife switch, fixed resistor, incandescent bulb with radiant illumination, inline ammeter, parallel voltmeter, and current flow arrows. |
+| **Wheatstone Bridge** | ![Wheatstone Bridge](docs/images/wheatstone-bridge.png) | Four-resistor bridge network ($R_1, R_2, R_3, R_x$), central zero-center Galvanometer with realistic deflection needle, DC battery, and balance condition verification ($R_1 R_x = R_2 R_3$). |
+| **RLC Circuit** | ![RLC Circuit](docs/images/rlc-circuit.png) | Series AC circuit with sinusoidal source, resistor $R$, multi-turn inductor coil $L$, parallel-plate capacitor $C$, and real-time calculation of impedance $Z$, reactances ($X_L, X_C$), and resonance frequency $f_0$. |
+| **Meter Bridge** | ![Meter Bridge](docs/images/meter-bridge.png) | One-meter slide wire bridge on wooden baseboard, calibrated millimeter scale (0–100 cm), thick brass strips, resistance box $R$, unknown wire $S$, sliding contact jockey, and null point equation. |
+| **Logic Gate Circuit** | ![Logic Circuit](docs/images/logic-circuit.png) | Digital electronics logic schematics (AND, OR, NAND, NOR, XOR, NOT), interactive binary toggles (0/1), color-coded signal rails, glowing LED probe, and synchronized truth table. |
+| **Ray Optics** | ![Ray Optics](docs/images/ray-optics.png) | Geometric optics thin lens schematic (convex/concave), principal axis, optical center $O$, focal points ($F_1, 2F_1, F_2, 2F_2$), three traced principal rays, real inverted image, and lens formula. |
+| **Simple Pendulum** | ![Simple Pendulum](docs/images/simple-pendulum.png) | Classical mechanics pendulum with rigid support ceiling, string length $L$, mass bob $m$, deflection angle $\theta$, oscillation trajectory arc, resolved force vectors ($mg\sin\theta, mg\cos\theta, T$), and period $T = 2\pi\sqrt{L/g}$. |
+
+---
+
 ## 🚀 Getting Started
 
 ### Installation
@@ -46,47 +60,74 @@ A modular suite of **textbook-grade chemistry apparatus and reaction visualizers
 npm install react-chemlab
 ```
 
-Or with pnpm / yarn:
-
-```bash
-pnpm add react-chemlab
-# or
-yarn add react-chemlab
-```
-
 ### Basic Usage
 
-Import any component directly and place it inside your React component tree:
+Import chemistry or physics components directly and embed them in your React application:
 
 ```tsx
-import { GalvanicCell, TitrationSetup, BohrModel } from 'react-chemlab'
+import {
+  GalvanicCell,
+  TitrationSetup,
+  DCCircuit,
+  WheatstoneBridge,
+  LogicCircuit,
+  RayOptics,
+  SimplePendulum
+} from 'react-chemlab'
 
-export function ChemistryApp() {
+export function ScienceDashboard() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
+      <DCCircuit
+        voltage={12}
+        resistance={10}
+        switchClosed={true}
+        showVoltmeter={true}
+        showAmmeter={true}
+        showBulb={true}
+        showCallouts={true}
+      />
+
+      <WheatstoneBridge
+        r1={100}
+        r2={100}
+        r3={200}
+        rx={200}
+        voltage={10}
+        showGalvanometerDeflection={true}
+        showBalanceEquation={true}
+      />
+
+      <LogicCircuit
+        gateType="AND"
+        inputA={1}
+        inputB={1}
+        showTruthTable={true}
+        showCallouts={true}
+      />
+
+      <RayOptics
+        lensType="convex"
+        focalLength={50}
+        objectDistance={80}
+        objectHeight={40}
+        showRays={true}
+        showFormula={true}
+      />
+
+      <SimplePendulum
+        stringLength={1.0}
+        angleDegrees={25}
+        bobMass={0.5}
+        showForceVectors={true}
+        showFormula={true}
+      />
+
       <GalvanicCell
         anodeElement="Zn"
         cathodeElement="Cu"
         voltage={1.10}
-        showLabels={true}
         showCallouts={true}
-        showElectronFlow={true}
-      />
-
-      <TitrationSetup
-        titrant="0.100 M NaOH"
-        analyte="25.0 mL HCl"
-        buretteVolume="24.35 mL"
-        endpointReached={true}
-        showCallouts={true}
-      />
-
-      <BohrModel
-        element="Carbon"
-        symbol="C"
-        atomicNumber={6}
-        shells={[2, 4]}
-        showQuantumJump={true}
       />
     </div>
   )
@@ -97,7 +138,134 @@ export function ChemistryApp() {
 
 ## 📖 Component API Reference
 
-### `<GalvanicCell />`
+### Physics & Circuits
+
+#### `<DCCircuit />`
+
+```tsx
+interface DCCircuitProps {
+  voltage?: number
+  resistance?: number
+  switchClosed?: boolean
+  showVoltmeter?: boolean
+  showAmmeter?: boolean
+  showBulb?: boolean
+  showCallouts?: boolean
+  showCurrentFlow?: boolean
+  animated?: boolean
+  width?: number | string
+  height?: number | string
+  className?: string
+}
+```
+
+#### `<WheatstoneBridge />`
+
+```tsx
+interface WheatstoneBridgeProps {
+  r1?: number
+  r2?: number
+  r3?: number
+  rx?: number
+  voltage?: number
+  showGalvanometerDeflection?: boolean
+  showBalanceEquation?: boolean
+  showCallouts?: boolean
+  width?: number | string
+  height?: number | string
+  className?: string
+}
+```
+
+#### `<RLCCircuit />`
+
+```tsx
+interface RLCCircuitProps {
+  resistance?: number
+  inductance?: number
+  capacitance?: number
+  frequency?: number
+  voltage?: number
+  showPhasorSummary?: boolean
+  showCallouts?: boolean
+  animated?: boolean
+  width?: number | string
+  height?: number | string
+  className?: string
+}
+```
+
+#### `<MeterBridge />`
+
+```tsx
+interface MeterBridgeProps {
+  resistanceR?: number
+  balanceLengthL?: number
+  unknownResistanceS?: number
+  driverVoltage?: number
+  showCallouts?: boolean
+  showFormula?: boolean
+  width?: number | string
+  height?: number | string
+  className?: string
+}
+```
+
+#### `<LogicCircuit />`
+
+```tsx
+interface LogicCircuitProps {
+  gateType?: 'AND' | 'OR' | 'NAND' | 'NOR' | 'XOR' | 'NOT'
+  inputA?: 0 | 1
+  inputB?: 0 | 1
+  showTruthTable?: boolean
+  showCallouts?: boolean
+  width?: number | string
+  height?: number | string
+  className?: string
+}
+```
+
+#### `<RayOptics />`
+
+```tsx
+interface RayOpticsProps {
+  lensType?: 'convex' | 'concave'
+  focalLength?: number
+  objectDistance?: number
+  objectHeight?: number
+  showRays?: boolean
+  showLabels?: boolean
+  showCallouts?: boolean
+  showFormula?: boolean
+  width?: number | string
+  height?: number | string
+  className?: string
+}
+```
+
+#### `<SimplePendulum />`
+
+```tsx
+interface SimplePendulumProps {
+  stringLength?: number
+  angleDegrees?: number
+  bobMass?: number
+  showForceVectors?: boolean
+  showTrajectoryArc?: boolean
+  showFormula?: boolean
+  showCallouts?: boolean
+  width?: number | string
+  height?: number | string
+  className?: string
+}
+```
+
+---
+
+### Chemistry
+
+#### `<GalvanicCell />`
 
 ```tsx
 interface GalvanicCellProps {
@@ -115,7 +283,7 @@ interface GalvanicCellProps {
 }
 ```
 
-### `<ElectrolyticCell />`
+#### `<ElectrolyticCell />`
 
 ```tsx
 interface ElectrolyticCellProps {
@@ -132,7 +300,7 @@ interface ElectrolyticCellProps {
 }
 ```
 
-### `<TitrationSetup />`
+#### `<TitrationSetup />`
 
 ```tsx
 interface TitrationSetupProps {
@@ -150,7 +318,7 @@ interface TitrationSetupProps {
 }
 ```
 
-### `<Spectrophotometer />`
+#### `<Spectrophotometer />`
 
 ```tsx
 interface SpectrophotometerProps {
@@ -166,7 +334,7 @@ interface SpectrophotometerProps {
 }
 ```
 
-### `<PaperChromatography />`
+#### `<PaperChromatography />`
 
 ```tsx
 interface PaperChromatographyProps {
@@ -184,7 +352,7 @@ interface PaperChromatographyProps {
 }
 ```
 
-### `<BohrModel />`
+#### `<BohrModel />`
 
 ```tsx
 interface BohrModelProps {
@@ -203,7 +371,7 @@ interface BohrModelProps {
 }
 ```
 
-### `<OrbitalDiagram />`
+#### `<OrbitalDiagram />`
 
 ```tsx
 interface OrbitalDiagramProps {
@@ -221,7 +389,7 @@ interface OrbitalDiagramProps {
 }
 ```
 
-### `<Calorimeter />`
+#### `<Calorimeter />`
 
 ```tsx
 interface CalorimeterProps {
@@ -238,7 +406,7 @@ interface CalorimeterProps {
 }
 ```
 
-### `<ReactionEnergyProfile />`
+#### `<ReactionEnergyProfile />`
 
 ```tsx
 interface ReactionEnergyProfileProps {
@@ -254,7 +422,7 @@ interface ReactionEnergyProfileProps {
 }
 ```
 
-### `<PhaseDiagram />`
+#### `<PhaseDiagram />`
 
 ```tsx
 interface PhaseDiagramProps {
@@ -270,7 +438,7 @@ interface PhaseDiagramProps {
 }
 ```
 
-### `<GasPiston />`
+#### `<GasPiston />`
 
 ```tsx
 interface GasPistonProps {
@@ -291,7 +459,7 @@ interface GasPistonProps {
 
 ## 🛠️ Development & Interactive Playground
 
-Clone this repository to run the local playground and test each component interactively:
+Clone this repository to run the local interactive laboratory and test each component live:
 
 ```bash
 git clone https://github.com/adhil72/react-chemlab.git
@@ -300,7 +468,7 @@ npm install
 npm run dev
 ```
 
-The interactive gallery will run at `http://localhost:5173/`, where you can toggle callout lines, switch visualizers, and inspect responsiveness.
+The interactive gallery will run at `http://localhost:5173/`, allowing you to inspect each study across chemistry, circuits, optics, and mechanics.
 
 To run lint checks and production builds:
 

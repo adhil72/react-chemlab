@@ -51,8 +51,8 @@ export const Voltmeter: React.FC<VoltmeterProps> = ({
         width={width}
         height={height}
         rx={3}
-        fill="#0284c7"
-        stroke="#0f172a"
+        fill="#0e7776"
+        stroke="#1e2d32"
         strokeWidth={2}
       />
 
@@ -62,15 +62,15 @@ export const Voltmeter: React.FC<VoltmeterProps> = ({
         width={screenWidth}
         height={screenHeight}
         rx={2}
-        fill="#ffffff"
-        stroke="#0f172a"
+        fill="#fffdf7"
+        stroke="#1e2d32"
         strokeWidth={1.5}
       />
 
       <text
         x={x}
         y={screenY + screenHeight / 2 + 1}
-        fill="#0f172a"
+        fill="#1e2d32"
         fontSize={16}
         fontWeight="bold"
         fontFamily="monospace"
@@ -80,8 +80,8 @@ export const Voltmeter: React.FC<VoltmeterProps> = ({
         {displayValue}
       </text>
 
-      <circle cx={boxX} cy={boxY + height / 2} r={3} fill="#0f172a" />
-      <circle cx={boxX + width} cy={boxY + height / 2} r={3} fill="#0f172a" />
+      <circle cx={boxX} cy={boxY + height / 2} r={3} fill="#1e2d32" />
+      <circle cx={boxX + width} cy={boxY + height / 2} r={3} fill="#1e2d32" />
     </g>
   );
 };

@@ -11,7 +11,7 @@ export interface WireProps {
 
 export const Wire: React.FC<WireProps> = ({
   path,
-  stroke = '#cbd5e1',
+  stroke = '#6c8081',
   strokeWidth = 2.5,
   animated = false,
   reverse = false,
@@ -30,7 +30,7 @@ export const Wire: React.FC<WireProps> = ({
         <path
           d={path}
           fill="none"
-          stroke="#38bdf8"
+          stroke="#0e7776"
           strokeWidth={4}
           strokeDasharray="6 14"
           strokeLinecap="round"

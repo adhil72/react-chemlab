@@ -24,7 +24,7 @@ export const Electrode: React.FC<ElectrodeProps> = ({
       <defs>
         <linearGradient id={`grad-${color.replace('#', '')}`} x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor={color} stopOpacity={0.8} />
-          <stop offset="50%" stopColor="#ffffff" stopOpacity={0.3} />
+          <stop offset="50%" stopColor="#fffdf7" stopOpacity={0.34} />
           <stop offset="100%" stopColor={color} stopOpacity={1} />
         </linearGradient>
       </defs>
@@ -35,7 +35,7 @@ export const Electrode: React.FC<ElectrodeProps> = ({
         height={height}
         fill={color}
         rx={2}
-        stroke="#334155"
+        stroke="#30454b"
         strokeWidth={1}
       />
       <rect
@@ -50,7 +50,7 @@ export const Electrode: React.FC<ElectrodeProps> = ({
         <text
           x={x + width / 2}
           y={y + height / 2}
-          fill="#ffffff"
+          fill="#fffdf7"
           fontSize={12}
           fontWeight="bold"
           textAnchor="middle"
