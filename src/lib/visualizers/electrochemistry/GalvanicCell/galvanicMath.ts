@@ -1,5 +1,5 @@
-import { STANDARD_REDUCTION_POTENTIALS, RedoxCouple } from '@/lib/core/constants/standardPotentials';
-import { calculateNernstPotential, NernstResult } from '@/lib/core/math/nernst';
+import { STANDARD_REDUCTION_POTENTIALS, RedoxCouple } from '../../../core/constants/standardPotentials';
+import { calculateNernstPotential, NernstResult } from '../../../core/math/nernst';
 import { GalvanicCellDetails, HalfCellConfig } from './GalvanicCell.types';
 
 export function resolveHalfCell(

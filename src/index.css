@@ -686,9 +686,31 @@ input:focus-visible {
     padding-left: 60px;
   }
 
-  .chemlab-category-list,
+  .chemlab-category-list {
+    display: flex;
+    gap: 8px;
+    margin-inline: -14px;
+    padding: 16px 14px 18px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+  }
+
+  .chemlab-category-button {
+    width: 220px;
+    flex: 0 0 220px;
+  }
+
   .chemlab-component-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 248px;
+    overflow-y: auto;
+    padding-right: 4px;
+    scrollbar-width: thin;
+  }
+
+  .chemlab-list-label {
+    grid-column: 1 / -1;
   }
 
   .chemlab-stage {

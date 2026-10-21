@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { GalvanicCellProps } from './GalvanicCell.types';
 import { computeGalvanicCellState } from './galvanicMath';
 import { HalfCell } from './parts/HalfCell';
-import { SaltBridge } from '@/lib/core/primitives/SaltBridge';
-import { Voltmeter } from '@/lib/core/primitives/Voltmeter';
+import { SaltBridge } from '../../../core/primitives/SaltBridge';
+import { Voltmeter } from '../../../core/primitives/Voltmeter';
 
 export const GalvanicCell: React.FC<GalvanicCellProps> = ({
   details,

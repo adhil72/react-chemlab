@@ -1,5 +1,5 @@
 import React from 'react';
-import { STANDARD_REDUCTION_POTENTIALS } from '@/lib/core/constants/standardPotentials';
+import { STANDARD_REDUCTION_POTENTIALS } from '../../../../core/constants/standardPotentials';
 
 export interface ControlsPanelProps {
   anodeMetal: string;

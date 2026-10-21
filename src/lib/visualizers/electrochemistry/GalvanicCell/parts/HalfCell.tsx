@@ -1,7 +1,7 @@
 import React from 'react';
-import { Beaker } from '@/lib/core/primitives/Beaker';
-import { Liquid } from '@/lib/core/primitives/Liquid';
-import { RedoxCouple } from '@/lib/core/constants/standardPotentials';
+import { Beaker } from '../../../../core/primitives/Beaker';
+import { Liquid } from '../../../../core/primitives/Liquid';
+import { RedoxCouple } from '../../../../core/constants/standardPotentials';
 
 export interface HalfCellProps {
   x: number;

@@ -83,5 +83,7 @@
 ./src/routeTree.gen.tsx
 ./tsconfig.app.json
 ./tsconfig.json
+./tsconfig.lib.json
 ./tsconfig.node.json
+./vite.config.lib.ts
 ./vite.config.ts

@@ -1,33 +1,59 @@
 {
   "name": "react-chemlab",
-  "version": "0.1.0",
-  "description": "Textbook-grade chemistry apparatus and reaction visualizers for React",
+  "version": "1.0.0",
+  "description": "Textbook-grade chemistry & physics apparatus, circuit, optics, and reaction visualizers for React",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/adhil72/react-chemlab.git"
   },
   "keywords": [
     "chemistry",
+    "physics",
+    "circuits",
     "science",
     "visualizer",
     "react",
     "svg",
+    "stem",
+    "education",
     "galvanic-cell",
     "titration",
     "spectrophotometer",
-    "bohr-model",
-    "orbital-diagram",
-    "stem",
-    "education"
+    "wheatstone-bridge",
+    "logic-gates",
+    "ray-optics",
+    "pendulum"
   ],
   "author": "adhil72",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build:app": "tsc -b && vite build",
+    "build:lib": "rm -rf dist && tsc -p tsconfig.lib.json && vite build --config vite.config.lib.ts",
+    "build": "npm run build:lib",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

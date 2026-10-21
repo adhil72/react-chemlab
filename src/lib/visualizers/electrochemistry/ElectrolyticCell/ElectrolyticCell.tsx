@@ -1,7 +1,7 @@
 import React from 'react';
 import { ElectrolyticCellProps } from './ElectrolyticCell.types';
-import { Beaker } from '@/lib/core/primitives/Beaker';
-import { Liquid } from '@/lib/core/primitives/Liquid';
+import { Beaker } from '../../../core/primitives/Beaker';
+import { Liquid } from '../../../core/primitives/Liquid';
 
 export const ElectrolyticCell: React.FC<ElectrolyticCellProps> = ({
   mode = 'water-electrolysis',
